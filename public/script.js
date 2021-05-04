@@ -16,7 +16,7 @@ async function dataHandler() {
   const request = await fetch('/api/dining');
   const api_data = await request.json();
   const { data } = api_data;
-  const table = document.querySelector('.table');
+  const table = document.querySelector('.chartContainer');
 
   console.log(data);
 
