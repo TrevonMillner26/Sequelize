@@ -36,55 +36,6 @@ function randInt(max) {
       table.append(appendItem);
     });
   }
-  async function macrosData() {
-    const request = await fetch('/api/macros');
-    const api_data = await request.json();
-    const {data} = api_data;
-    const macro_data = [
-      {
-        type: 'stackedBar',
-        name: 'Calories',
-        showInLegend: 'true',
-        dataPoints: []
-      },
-  
-      {
-        type: 'stackedBar',
-        name: 'Serving Size',
-        showInLegend: 'true',
-        dataPoints: []
-      },
-      {
-        type: 'stackedBar',
-        name: 'Cholesterol',
-        showInLegend: 'true',
-        dataPoints: []
-      },
-      {
-        type: 'stackedBar',
-        name: 'Sodium',
-        showInLegend: 'true',
-        dataPoints: []
-      },
-      {
-        type: 'stackedBar',
-        name: 'Carbs',
-        showInLegend: 'true',
-        dataPoints: []
-      },
-      {
-        type: 'stackedBar',
-        name: 'Protein',
-        showInLegend: 'true',
-        dataPoints: []
-      },
-      {
-        type: 'stackedBar',
-        name: 'Fat',
-        showInLegend: 'true',
-        dataPoints: []
-      }
-    ];
   
     const randMealList = randMeals(api_data);
   
@@ -93,37 +44,7 @@ function randInt(max) {
       const nameRequest = await fetch(`/api/meals/${element.meal_id}`);
       const titleData = await nameRequest.json();
       console.log(titleData);
-  
-      macro_data[0].dataPoints.push({
-        label: titleData[0].meal_name,
-        y: element.calories
-      });
-      macro_data[1].dataPoints.push({
-        label: titleData[0].meal_name,
-        y: element.serving_size
-      });
-      macro_data[2].dataPoints.push({
-        label: titleData[0].meal_name,
-        y: element.cholesterol
-      });
-      macro_data[3].dataPoints.push({
-        label: titleData[0].meal_name,
-        y: element.sodium
-      });
-      macro_data[4].dataPoints.push({
-        label: titleData[0].meal_name,
-        y: element.carbs
-      });
-      macro_data[5].dataPoints.push({
-        label: titleData[0].meal_name,
-        y: element.protein
-      });
-      macro_data[6].dataPoints.push({
-        label: titleData[0].meal_name,
-        y: element.fat
-      });
-    }
-  
+
     const chart = new CanvasJS.Chart('chartContainer', {
       title: {
         text: 'Macro Data'
