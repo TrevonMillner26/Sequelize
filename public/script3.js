@@ -20,3 +20,17 @@ async function macromeals() {
       targetTable.append(appendElement);
     });
   }
+
+  function getRandomInteger(max) {
+    return Math.floor(Math.random() * max);
+  }
+  
+  function getRandomMeals(meal_name) {
+    const random_meals = [];
+    for (i = 0; i < 10; i++) {
+      const current_random_meal = getRandomInteger(meal_name.length - 1);
+      random_meals.push(meal_name[current_random_meal]);
+      meal_name.splice(current_random_meal, 1);
+    }
+    return random_meals;
+  }
