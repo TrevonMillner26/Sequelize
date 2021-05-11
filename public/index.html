@@ -1,35 +1,49 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trevon Millner's W8</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
-    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Trevon Millner's W10</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+      <link rel="stylesheet" type="text/css" href="style.css" />
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script> 
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+
 </head>
+
+
 <body>
-    <div class="box container">
-        <h1 class="title has-text-centered">Trevon Millner's W8</h1>
-        <div id="chartContainer" style="height: 500px; width: 100%;"></div>
-        <table class="table is-bordered is-striped is-fullwidth">
-            <thead>
-                <tr>
-                    <th>Meal ID</th>
-                    <th>Name</th>
-                    <th>Calories</th>
-                    <th>Carbs</th>
-                    <th>Sodium</th>
-                    <th>Protein</th>
-                    <th>Fat</th>
-                    <th>Cholesterol</th>
-                </tr>
-            </thead>
+    
+    <section class = "W10">
 
-        </table>
+        <h1 class="title has-text-centered">Trevon Millner's W10</h1>
 
+        <div id="chartContainer" style="height: 3400px; width: auto;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <div class="box container">
+    
+     <div>
+      <h2 class="title has-text-centered"> Full Meals & Macro Information Table</h2>
+        <table class = "table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-background-info-light">
+         <thead>
+          <tr>
+            <th class ="is-size-4">Meal ID</th>
+            <th class ="is-size-4">Meal Name</th>
+            <th class ="is-size-4">Calories</th>
+            <th class ="is-size-4">Carbs</th>
+            <th class ="is-size-4">Sodium</th>
+            <th class ="is-size-4">Protein</th>
+            <th class ="is-size-4">Fat</th>
+            <th class ="is-size-4">Cholesterol</th>
+          </tr>
+       </thead>
     </div>
+        <tbody class = "w10"></tbody>
+      </table>
+   </section>
 </body>
+
+<script src="script4.js"></script>
+
 </html>
