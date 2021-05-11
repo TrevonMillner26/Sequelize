@@ -39,7 +39,7 @@ async function macromeals() {
     const request = await fetch('/api/macros');
     const api_full = await request.json();
     const {data} = api_full;
-    const macro_meal_data = [
+    const macroMealData = [
       {
         type: 'stackedBar',
         name: 'Calories',
@@ -90,5 +90,15 @@ async function macromeals() {
     for (i = 0; i < randomMeallist.length; i++) {
         element = randomMealsList[i];
         const nameRequest = await fetch(`/api/meals/${element.meal_id}`);
-        const nameDataMmeal = await nameRequest.json();
-        console.log(nameDataMmeal);
+        const nameDataMeal = await nameRequest.json();
+        console.log(nameDataMeal);
+
+        //adding the data point to the stacked chart
+
+        macroMealData[0].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.calories });
+        macroMealData[1].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.serving_size });
+        macroMealData[2].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.cholesterol });
+        macroMealData[3].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.sodium });
+        macroMealData[4].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.carbs });
+        macroMealData[5].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.protein });
+        macroMealData[6].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.fat });
