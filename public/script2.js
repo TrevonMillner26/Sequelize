@@ -41,38 +41,87 @@ async function macromeals() {
   async function mealDataPoints(macros){
     macro_meal_data.dataPoints.push({label: meal_data.meal_name, y: element.macros});
   }
-  
-  
-  
-    data.forEach((element) => {
-      console.log(element.hall_name);
-      console.log(element.hall_address);
-      console.log(element.hall_id);
-      const appendItem = document.createElement('tr');
-      appendItem.innerHTML = `<td>${element.hall_id}</td><td>${element.hall_name}</td><td>${element.hall_address}</td>`;
-      table.append(appendItem);
-    });
-  
-    const randMealList = randMeals(api_data);
-  
-    for (i = 0; i < randMealList.length; i++) {
-      element = randMealList[i];
-      const nameRequest = await fetch(`/api/meals/${element.meal_id}`);
-      const titleData = await nameRequest.json();
-      console.log(titleData);
-  
-      const chart = new CanvasJS.Chart('chartContainer', {
-        title: {
-          text: 'Meal Macro Information'
+
+  async function dataMacros() {
+    const request = await fetch('/api/FullMeals');
+    const apiMacro = await request.json();
+    const {data} = apiMacro;
+    const macro_meal_data = [
+        {
+          type: 'stackedBar',
+          name: 'Calories',
+          showInLegend: 'true',
+          dataPoints: mealDataPoints(calories)
+            },
+    
+        {
+          type: 'stackedBar',
+          name: 'Serving Size',
+          showInLegend: 'true',
+          dataPoints: mealDataPoints(serving_size)
         },
-        data: macro_data
-      });
-      chart.render();
-    }
+        {
+          type: 'stackedBar',
+          name: 'Cholesterol',
+          showInLegend: 'true',
+          dataPoints: mealDataPoints(cholesterol)
+        },
+        {
+          type: 'stackedBar',
+          name: 'Sodium',
+          showInLegend: 'true',
+          dataPoints: mealDataPoints(calories)
+        },
+        {
+          type: 'stackedBar',
+          name: 'Carbs',
+          showInLegend: 'true',
+          dataPoints: []
+        },
+        {
+          type: 'stackedBar',
+          name: 'Protein',
+          showInLegend: 'true',
+          dataPoints: []
+        },
+        {
+          type: 'stackedBar',
+          name: 'Fat',
+          showInLegend: 'true',
+          dataPoints: []
+        }
+      ];
     
-    async function windowActions() {
-      await dataHandler();
-      await macrosData();
-    }
+      const random_meals = getRandomMeals(api_macro);
+      for (i = 0; i < random_meal_list.length; i++) {
+        element = random_meals[i];
     
+        const mealname_request = await fetch(`/api/meals/${element.meal_id}`);
+        const meal_data = await mealname_request.json();
+    
+        console.log(meal_data);
+      };
+  
+    
+        var chart = new CanvasJS.Chart("chartContainer",
+        {
+          title:{
+          text: "Meal Macro Information"
+          },
+          data: macro_data
+        });
+        chart.render();
+    
+      }
+  
+  
+  
+  
+  
+   async function windowActions() {
+      console.log('loaded window');
+      const data = await macromeals();
+      console.table(data);
+    }
+
     window.onload = windowActions;
