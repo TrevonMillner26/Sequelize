@@ -1,4 +1,4 @@
-async function macromeals() {
+async function macroMeals() {
     const requestData = await fetch('/api/FullMeal');
     const macroData = await requestData.json();
     const arrayData = macroData.data;
@@ -85,7 +85,7 @@ async function macromeals() {
       }
     ];
 
-    console.log(macro_meal_data[0]);
+    console.log(macroMealData[0]);
     const randomMealsList = getRandomMeals(api_full);
     for (i = 0; i < randomMeallist.length; i++) {
         element = randomMealsList[i];

@@ -1,4 +1,4 @@
-async function macromeals() {
+async function macroMeals() {
     const requestData = await fetch('/api/fullMeal');
     const macroData = await requestData.json();
     const arrayData = macroData.data;
@@ -120,7 +120,7 @@ async function macromeals() {
   
    async function windowActions() {
       console.log('loaded window');
-      const data = await macromeals();
+      const data = await macroMeals();
       console.table(data);
     }
 
