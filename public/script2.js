@@ -29,17 +29,17 @@ async function macroMeals() {
     return Math.floor(Math.random() * max);
   }
   function randMeals(data) {
-    const random_meals = [];
+    const randomMeals = [];
     for (i = 0; i < 10; i++) {
-      const current_random_meal = randInt(data.length - 1);
-      random_meals.push(data[current_random_meal]);
-      data.splice(current_random_meal, 1);
+      const currentRandomMeal = randInt(data.length - 1);
+      randomMeals.push(data[currentRandomMeal]);
+      data.splice(currentRandomMeal, 1);
     }
-    return random_meals;
+    return randomMeals;
   }
   
   async function mealDataPoints(macros){
-    macro_meal_data.dataPoints.push({label: meal_data.meal_name, y: element.macros});
+    macroMealData.dataPoints.push({label: meal_data.meal_name, y: element.macros});
   }
 
   async function dataMacros() {
@@ -92,9 +92,9 @@ async function macroMeals() {
         }
       ];
     
-      const random_meals = getRandomMeals(api_macro);
-      for (i = 0; i < random_meal_list.length; i++) {
-        element = random_meals[i];
+      const randomMeals = getRandomMeals(apiMacro);
+      for (i = 0; i < randomMealList.length; i++) {
+        element = randomMeals[i];
     
         const mealname_request = await fetch(`/api/meals/${element.meal_id}`);
         const meal_data = await mealname_request.json();
@@ -103,14 +103,14 @@ async function macroMeals() {
       };
   
     
-        var chart = new CanvasJS.Chart("chartContainer",
+        const mealsChart = new CanvasJS.Chart("chartContainer",
         {
           title:{
           text: "Meal Macro Information"
           },
-          data: macro_data
+          data: macroData
         });
-        chart.render();
+        mealsChart.render();
     
       }
   
