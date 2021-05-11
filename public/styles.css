@@ -1,3 +1,11 @@
+h1, h2 {
+  line-height: 1.2;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 95;
+  text-transform: uppercase;
+  font-family: 'Times New Roman', Times, serif;
+
 body, html {
   font: normal 18px/1.5;
   font-family: 'Times New Roman', Times, serif;
@@ -8,11 +16,3 @@ body, html {
   text-align: center;
 
 }
-
-h1, h2 {
-  line-height: 1.2;
-  font-size: 2.5rem;
-  text-align: center;
-  font-weight: 95;
-  text-transform: uppercase;
-  font-family: 'Times New Roman', Times, serif;
