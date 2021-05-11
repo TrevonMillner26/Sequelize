@@ -34,3 +34,55 @@ async function macromeals() {
     }
     return random_meals;
   }
+
+  async function dataMacros() {
+    const request = await fetch('/api/macros');
+    const api_whole = await request.json();
+    const {data} = api_whole;
+    const macro_meal_data = [
+      {
+        type: 'stackedBar',
+        name: 'Calories',
+        showInLegend: 'true',
+        dataPoints: []
+      },
+  
+      {
+        type: 'stackedBar',
+        name: 'Serving Size',
+        showInLegend: 'true',
+        dataPoints: []
+      },
+      {
+        type: 'stackedBar',
+        name: 'Cholesterol',
+        showInLegend: 'true',
+        dataPoints: []
+      },
+      {
+        type: 'stackedBar',
+        name: 'Sodium',
+        showInLegend: 'true',
+        dataPoints: []
+      },
+      {
+        type: 'stackedBar',
+        name: 'Carbs',
+        showInLegend: 'true',
+        dataPoints: []
+      },
+      {
+        type: 'stackedBar',
+        name: 'Protein',
+        showInLegend: 'true',
+        dataPoints: []
+      },
+      {
+        type: 'stackedBar',
+        name: 'Fat',
+        showInLegend: 'true',
+        dataPoints: []
+      }
+    ];
+
+    
