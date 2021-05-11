@@ -37,8 +37,8 @@ async function macromeals() {
 
   async function dataMacros() {
     const request = await fetch('/api/macros');
-    const api_whole = await request.json();
-    const {data} = api_whole;
+    const api_full = await request.json();
+    const {data} = api_full;
     const macro_meal_data = [
       {
         type: 'stackedBar',
@@ -86,4 +86,9 @@ async function macromeals() {
     ];
 
     console.log(macro_meal_data[0]);
-    const randomMealsList = getRandomMeals(api_whole);
+    const randomMealsList = getRandomMeals(api_full);
+    for (i = 0; i < randomMeallist.length; i++) {
+        element = randomMealsList[i];
+        const nameRequest = await fetch(`/api/meals/${element.meal_id}`);
+        const nameDataMmeal = await nameRequest.json();
+        console.log(nameDataMmeal);
