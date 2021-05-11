@@ -102,3 +102,15 @@ async function macromeals() {
         macroMealData[4].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.carbs });
         macroMealData[5].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.protein });
         macroMealData[6].dataPoints.push({ label: nameDataMeal[0].meal_name, y: element.fat });
+    }
+
+    const mealsChart = new CanvasJS.Chart("chartContainer",
+    {
+      title: {
+        text: "Meal/Macro Information Chart"
+      },
+      data: macroMealData
+    });
+
+  mealsChart.render();
+}
