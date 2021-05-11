@@ -85,4 +85,5 @@ async function macromeals() {
       }
     ];
 
-    
+    console.log(macro_meal_data[0]);
+    const randomMealsList = getRandomMeals(api_whole);
