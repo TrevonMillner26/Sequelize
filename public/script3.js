@@ -114,3 +114,12 @@ async function macromeals() {
 
   mealsChart.render();
 }
+
+async function windowActions() {
+    console.log("loaded window");
+    const data = await macroMeals();
+    await dataMacros();
+    console.table(data);
+  }
+  
+  window.onload = windowActions;
